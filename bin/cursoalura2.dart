@@ -9,10 +9,20 @@ void main() {
   int diasDesdeColheita = 20;
   bool isMadura = funcEstaMadura(diasDesdeColheita);
 
-  mostrarMadura(nome: nome, dias: diasDesdeColheita, cor: cor);
+  var fruta01 = Fruta(nome, peso, cor, sabor, diasDesdeColheita);
 
-  funcQuantosDiasMadura(dias: diasDesdeColheita, diasFaltam: diasParaMadura );
+  print({fruta01.nome, fruta01.peso, fruta01.cor, fruta01.sabor});
+
 }
+class Fruta{
+  String nome;
+  double peso;
+  String cor;
+  String sabor;
+  int diasDesdeColheita;
+  Fruta(this.nome, this.peso, this.cor, this.sabor, this.diasDesdeColheita);
+}
+
 
 funcQuantosDiasMadura({required int dias, required int diasFaltam}){
     int quantosDiasFaltam = diasFaltam - dias;
@@ -31,7 +41,6 @@ mostrarMadura({required String? nome, required int? dias, required String? cor})
   }
 
   print('A $nome é $cor');
-
 }
 
 bool funcEstaMadura(int dias) {
